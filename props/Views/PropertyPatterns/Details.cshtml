@@ -4,35 +4,26 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
-
+<h2>Patterns</h2>
+<h3>
+    @Html.DisplayFor(model => model.Id)
+</h3>
 <div>
-    <h2>Details</h2>
-
-    <div>
-        <h4>Gender</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.Id)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Id)
-            </dd>
-        </dl>
-    </div>
-    <table>
+    <table cellpadding="3">
+        <tr>
+            <th>Key</th>
+            <th>Value</th>
+        </tr>
         @foreach (var item in Model.Properties)
         {
-        <tr>
-            <td>
-                @Html.DisplayFor(model => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.Value)
-            </td>
-        </tr>
+            <tr>
+                <td>
+                    <i>@Html.DisplayFor(model => item.Id)</i>
+                </td>
+                <td>
+                    <b>@Html.DisplayFor(model => item.Value)</b>
+                </td>
+            </tr>
         }
     </table>
     <p>

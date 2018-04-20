@@ -1,4 +1,4 @@
-﻿using mrProper.Models;
+﻿using props.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +13,5 @@ namespace props.Models
         public string Species { get; set; }
         public string Colour { get; set; }
         public bool FavouritePet { get; set; }
-        public int OwnerId { get; set; }
-        public Customer Owner { get; set; }
     }
 }

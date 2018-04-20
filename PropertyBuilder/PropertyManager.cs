@@ -18,7 +18,7 @@ namespace PropertyBuilder
                 return;
             }
             var type = objectToSave.GetType();
-            prefix = prefix ?? type.Name;
+            prefix = prefix ?? GetTypeName(type);
             var key = $"{identifier}{prefix}";
 
             if (type.IsPrimitive || type == typeof(string) || type == typeof(decimal) || objectToSave is IEnumerable)
@@ -31,11 +31,11 @@ namespace PropertyBuilder
                 var propertyDictionary = PropertyDictionary.Instance();
                 if (propertyDictionary.ContainsKey(key))
                 {
-                    propertyDictionary[key] = JsonConvert.SerializeObject(objectToSave);
+                    propertyDictionary[key] = GetValue(objectToSave);
                 }
                 else
                 {
-                    propertyDictionary.Add(key, objectToSave.ToString());
+                    propertyDictionary.Add(key, GetValue(objectToSave));
                 }
             }
             else
@@ -46,6 +46,20 @@ namespace PropertyBuilder
                     SaveProperties(property.GetValue(objectToSave), identifier, immediatePrefix);
                 }
             }
+        }
+
+        private static string GetValue(object objectToSave)
+        {
+            if (!(objectToSave is string) && objectToSave is IEnumerable)
+            {
+                return JsonConvert.SerializeObject(objectToSave);
+            }
+            return objectToSave.ToString();
+        }
+
+        private static string GetTypeName(Type type)
+        {
+            return type.BaseType?.Name ?? type.Name;
         }
 
         public string GetValue(string key)

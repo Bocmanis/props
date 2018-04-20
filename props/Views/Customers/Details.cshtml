@@ -1,4 +1,4 @@
-﻿@model mrProper.Models.Customer
+﻿@model props.Models.Customer
 
 @{
     ViewBag.Title = "Details";
@@ -7,6 +7,9 @@
 <h2>Details</h2>
 
 <div>
+    <button>
+        @Html.ActionLink("Generate Properties", "GenerateProperties", new { id = Model.Id })
+    </button>
     <h4>Customer</h4>
     <hr />
     <dl class="dl-horizontal">
@@ -43,6 +46,57 @@
         </dd>
 
     </dl>
+    <h4>Favourite pet</h4>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FavouritePet.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FavouritePet.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FavouritePet.Species)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FavouritePet.Species)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FavouritePet.Colour)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FavouritePet.Colour)
+        </dd>
+    </dl>
+    <h4>All pets</h4>
+    @foreach (var pet in Model.Pets)
+    {
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => pet.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => pet.Name)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => pet.Species)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => pet.Species)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => pet.Colour)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => pet.Colour)
+            </dd>
+        </dl>
+    }
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |

@@ -15,6 +15,10 @@ namespace StorageAccess
         {
             if (instance == null)
             {
+                if (PersistentDictionaryFile.Exists("Property"))
+                {
+                    PersistentDictionaryFile.DeleteFiles("Property");
+                }
                 instance = new PersistentDictionary<string, string>("Property");
             }
             return instance;

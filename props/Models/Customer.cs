@@ -1,10 +1,11 @@
 ﻿using props.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
-namespace mrProper.Models
+namespace props.Models
 {
     public class Customer
     {
@@ -16,5 +17,7 @@ namespace mrProper.Models
         public Gender Gender { get; set; }
         public virtual ICollection<Pet> Pets { get; set; }
         public virtual ICollection<Case> Cases { get; set; }
+        [NotMapped]
+        public Pet FavouritePet { get; set; }
     }
 }

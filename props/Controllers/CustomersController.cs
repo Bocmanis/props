@@ -6,7 +6,8 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using mrProper.Models;
+using PropertyBuilder;
+using props.Models;
 using props.Models;
 
 namespace props.Controllers
@@ -29,12 +30,40 @@ namespace props.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = db.Customers.Find(id);
+            Customer customer = GetCustomer(id);
             if (customer == null)
             {
                 return HttpNotFound();
             }
             return View(customer);
+        }
+
+        // GET: Customers/GenerateProperties/5
+        public ActionResult GenerateProperties(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Customer customer = GetCustomer(id);
+            if (customer == null)
+            {
+                return HttpNotFound();
+            }
+            new PropertyManager().SaveProperties(customer, customer.Id);
+            return RedirectToAction("Details", new { id = customer.Id });
+        }
+
+        private Customer GetCustomer(int? id)
+        {
+            var customer = db.Customers.Find(id);
+            customer.Pets = (from pets in db.Pets
+                             join cp in db.CustomerPets on pets.Id equals cp.PetId
+                             where cp.CustomerId == customer.Id
+                             select pets).ToList();
+            customer.FavouritePet = customer.Pets.FirstOrDefault(p => p.FavouritePet);
+            customer.Gender = db.Genders.Find(customer.GenderId);
+            return customer;
         }
 
         // GET: Customers/Create

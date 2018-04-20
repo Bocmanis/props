@@ -204,6 +204,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BasePropertiesController.cs" />
     <Compile Include="Controllers\CasesController.cs" />
+    <Compile Include="Controllers\CustomerPetsController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\GendersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -254,10 +255,23 @@
     <Compile Include="Migrations\201804200704170_addPets13wd1.Designer.cs">
       <DependentUpon>201804200704170_addPets13wd1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804200842181_init33.cs" />
+    <Compile Include="Migrations\201804200842181_init33.Designer.cs">
+      <DependentUpon>201804200842181_init33.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804200845351_init331.cs" />
+    <Compile Include="Migrations\201804200845351_init331.Designer.cs">
+      <DependentUpon>201804200845351_init331.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804200848502_init33WWW.cs" />
+    <Compile Include="Migrations\201804200848502_init33WWW.Designer.cs">
+      <DependentUpon>201804200848502_init33WWW.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Case.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\CustomerPets.cs" />
     <Compile Include="Models\FullProp.cs" />
     <Compile Include="Models\Gender.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -351,16 +365,21 @@
     <Content Include="Views\PropertyPatterns\Details.cshtml" />
     <Content Include="Views\PropertyPatterns\Edit.cshtml" />
     <Content Include="Views\PropertyPatterns\Index.cshtml" />
-    <Content Include="Views\Customers\Create.cshtml" />
-    <Content Include="Views\Customers\Delete.cshtml" />
-    <Content Include="Views\Customers\Details.cshtml" />
-    <Content Include="Views\Customers\Edit.cshtml" />
-    <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\Pets\Create.cshtml" />
     <Content Include="Views\Pets\Delete.cshtml" />
     <Content Include="Views\Pets\Details.cshtml" />
     <Content Include="Views\Pets\Edit.cshtml" />
     <Content Include="Views\Pets\Index.cshtml" />
+    <Content Include="Views\Customers\Create.cshtml" />
+    <Content Include="Views\Customers\Delete.cshtml" />
+    <Content Include="Views\Customers\Details.cshtml" />
+    <Content Include="Views\Customers\Edit.cshtml" />
+    <Content Include="Views\Customers\Index.cshtml" />
+    <Content Include="Views\CustomerPets\Create.cshtml" />
+    <Content Include="Views\CustomerPets\Delete.cshtml" />
+    <Content Include="Views\CustomerPets\Details.cshtml" />
+    <Content Include="Views\CustomerPets\Edit.cshtml" />
+    <Content Include="Views\CustomerPets\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -408,6 +427,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804200704170_addPets13wd1.resx">
       <DependentUpon>201804200704170_addPets13wd1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804200842181_init33.resx">
+      <DependentUpon>201804200842181_init33.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804200845351_init331.resx">
+      <DependentUpon>201804200845351_init331.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804200848502_init33WWW.resx">
+      <DependentUpon>201804200848502_init33WWW.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

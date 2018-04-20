@@ -17,8 +17,7 @@ namespace props.Controllers
         // GET: Pets
         public ActionResult Index()
         {
-            var pets = db.Pets.Include(p => p.Owner);
-            return View(pets.ToList());
+            return View(db.Pets.ToList());
         }
 
         // GET: Pets/Details/5
@@ -39,7 +38,6 @@ namespace props.Controllers
         // GET: Pets/Create
         public ActionResult Create()
         {
-            ViewBag.OwnerId = new SelectList(db.Customers, "Id", "Name");
             return View();
         }
 
@@ -48,7 +46,7 @@ namespace props.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Species,Colour,FavouritePet,OwnerId")] Pet pet)
+        public ActionResult Create([Bind(Include = "Id,Name,Species,Colour,FavouritePet")] Pet pet)
         {
             if (ModelState.IsValid)
             {
@@ -57,7 +55,6 @@ namespace props.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.OwnerId = new SelectList(db.Customers, "Id", "Name", pet.OwnerId);
             return View(pet);
         }
 
@@ -73,7 +70,6 @@ namespace props.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.OwnerId = new SelectList(db.Customers, "Id", "Name", pet.OwnerId);
             return View(pet);
         }
 
@@ -82,7 +78,7 @@ namespace props.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Species,Colour,FavouritePet,OwnerId")] Pet pet)
+        public ActionResult Edit([Bind(Include = "Id,Name,Species,Colour,FavouritePet")] Pet pet)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +86,6 @@ namespace props.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.OwnerId = new SelectList(db.Customers, "Id", "Name", pet.OwnerId);
             return View(pet);
         }
 

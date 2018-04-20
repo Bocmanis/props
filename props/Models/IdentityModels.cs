@@ -30,18 +30,20 @@ namespace props.Models
             return new ApplicationDbContext();
         }
 
-        public System.Data.Entity.DbSet<mrProper.Models.BaseProperty> BaseProperties { get; set; }
+        public System.Data.Entity.DbSet<props.Models.BaseProperty> BaseProperties { get; set; }
 
-        public System.Data.Entity.DbSet<mrProper.Models.PropertyType> PropertyTypes { get; set; }
+        public System.Data.Entity.DbSet<props.Models.PropertyType> PropertyTypes { get; set; }
 
-        public System.Data.Entity.DbSet<mrProper.Models.Case> Cases { get; set; }
+        public System.Data.Entity.DbSet<props.Models.Case> Cases { get; set; }
 
-        public System.Data.Entity.DbSet<mrProper.Models.Customer> Customers { get; set; }
+        public System.Data.Entity.DbSet<props.Models.Customer> Customers { get; set; }
 
-        public System.Data.Entity.DbSet<mrProper.Models.Gender> Genders { get; set; }
+        public System.Data.Entity.DbSet<props.Models.Gender> Genders { get; set; }
 
         public System.Data.Entity.DbSet<props.Models.PropertyPattern> PropertyPatterns { get; set; }
 
         public System.Data.Entity.DbSet<props.Models.Pet> Pets { get; set; }
+
+        public System.Data.Entity.DbSet<props.Models.CustomerPets> CustomerPets { get; set; }
     }
 }
