@@ -1,0 +1,25 @@
+﻿@model IEnumerable<props.Models.PropertyPattern>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table">
+    <tr>
+        @Html.DisplayNameFor(model => model.Id)
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,42 @@
+﻿@model props.Models.PropertyPattern
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h2>Details</h2>
+
+    <div>
+        <h4>Gender</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Id)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Id)
+            </dd>
+        </dl>
+    </div>
+    <table>
+        @foreach (var item in Model.Properties)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Value)
+            </td>
+        </tr>
+        }
+    </table>
+    <p>
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</div>
+

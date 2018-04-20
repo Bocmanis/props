@@ -39,5 +39,9 @@ namespace props.Models
         public System.Data.Entity.DbSet<mrProper.Models.Customer> Customers { get; set; }
 
         public System.Data.Entity.DbSet<mrProper.Models.Gender> Genders { get; set; }
+
+        public System.Data.Entity.DbSet<props.Models.PropertyPattern> PropertyPatterns { get; set; }
+
+        public System.Data.Entity.DbSet<props.Models.Pet> Pets { get; set; }
     }
 }
